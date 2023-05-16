@@ -3,7 +3,7 @@ from app import app, db
 from app.models import User, Customer, BankAccount, Transaction
 
 
-@app.route('/bankAccount/create', methods=['POST'])
+@app.route('/api/bankAccount/create', methods=['POST'])
 def add():
     if request.method == 'POST':
         content_type = request.headers.get('Content-Type')
@@ -22,7 +22,7 @@ def add():
         else:
             return 'Unsupported media type', 415
 
-@app.route('/bankAccount/transfer', methods=['POST'])
+@app.route('/api/bankAccount/transfer', methods=['POST'])
 def transfer():
     if request.method == 'POST':
         content_type = request.headers.get('Content-Type')
@@ -49,7 +49,7 @@ def transfer():
         else:
             return 'Unsupported media type', 415
 
-@app.route('/bankAccount/balance', methods=['GET'])
+@app.route('/api/bankAccount/balance', methods=['GET'])
 def balance():
     if request.method == 'GET':
         args = request.args
